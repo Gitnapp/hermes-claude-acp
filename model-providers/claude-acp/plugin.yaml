@@ -1,0 +1,5 @@
+name: claude-acp-provider
+kind: model-provider
+version: 0.1.0
+description: Claude Code via ACP through a local OpenAI-compatible bridge
+author: Eric

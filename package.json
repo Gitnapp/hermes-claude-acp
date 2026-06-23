@@ -1,0 +1,16 @@
+{
+  "name": "hermes-claude-acp",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Hermes Claude ACP bridge dependencies pinned to the Openclaw ACPX pattern",
+  "type": "module",
+  "scripts": {
+    "bridge": "python -m hermes_claude_acp.bridge",
+    "bridge:check": "python -m hermes_claude_acp.bridge --check",
+    "test": "python -m unittest discover -s tests"
+  },
+  "dependencies": {
+    "@agentclientprotocol/claude-agent-acp": "0.33.1",
+    "acpx": "0.7.0"
+  }
+}

@@ -1,0 +1,9 @@
+[project]
+name = "hermes-claude-acp"
+version = "0.1.0"
+description = "Hermes model-provider plugin for Claude Code through ACP"
+requires-python = ">=3.11"
+dependencies = []
+
+[project.scripts]
+hermes-claude-acp-bridge = "hermes_claude_acp.bridge:main"

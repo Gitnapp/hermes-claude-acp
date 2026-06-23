@@ -1,0 +1,7 @@
+name: hermes-claude-acp
+kind: standalone
+version: 0.1.0
+description: Registers Claude ACP as a Hermes model provider through an OpenAI-compatible bridge
+author: Eric
+provides_hooks: []
+provides_tools: []
