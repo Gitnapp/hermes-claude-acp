@@ -104,12 +104,12 @@ class BridgeTests(unittest.TestCase):
                 run_acpx_prompt("prompt", model=None, cwd="/tmp", timeout_seconds=3)
 
     def test_model_catalog_exposes_current_claude_metadata(self):
-        self.assertEqual(FALLBACK_MODELS[0], "claude-fable-5")
+        self.assertEqual(FALLBACK_MODELS[0], "claude-opus-4-8")
         cards = {card["id"]: card for card in model_cards()}
 
-        self.assertEqual(cards["claude-fable-5"]["context_length"], 1_000_000)
-        self.assertEqual(cards["claude-fable-5"]["max_output_tokens"], 128_000)
         self.assertEqual(cards["claude-opus-4-8"]["context_length"], 1_000_000)
+        self.assertEqual(cards["claude-opus-4-8"]["max_output_tokens"], 128_000)
+        self.assertEqual(cards["claude-sonnet-4-6"]["context_length"], 1_000_000)
         self.assertEqual(cards["claude-sonnet-4-6"]["max_completion_tokens"], 128_000)
         self.assertEqual(cards["claude-haiku-4-5"]["context_length"], 200_000)
         self.assertEqual(max_output_tokens_for("claude-haiku-4-5-20251001"), 64_000)
@@ -132,7 +132,7 @@ class BridgeTests(unittest.TestCase):
         self.assertEqual(config["model"]["provider"], "claude-max")
         self.assertIn(PROVIDER_KEY, config["providers"])
         self.assertEqual(
-            config["providers"][PROVIDER_KEY]["models"]["claude-fable-5"]["context_length"],
+            config["providers"][PROVIDER_KEY]["models"]["claude-sonnet-4-6"]["context_length"],
             1_000_000,
         )
 
@@ -142,8 +142,8 @@ class BridgeTests(unittest.TestCase):
         merge_config(config, set_default=True)
 
         self.assertEqual(config["model"]["provider"], PROVIDER_KEY)
-        self.assertEqual(config["model"]["default"], "claude-fable-5")
-        self.assertEqual(build_provider_config()["default_model"], "claude-fable-5")
+        self.assertEqual(config["model"]["default"], "claude-sonnet-4-6")
+        self.assertEqual(build_provider_config()["default_model"], "claude-sonnet-4-6")
 
 
 if __name__ == "__main__":

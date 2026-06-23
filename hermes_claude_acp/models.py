@@ -33,19 +33,12 @@ class ClaudeModelSpec:
         }
 
 
+# Source: https://platform.claude.com/docs/en/about-claude/models/overview
 CLAUDE_MODELS: tuple[ClaudeModelSpec, ...] = (
-    ClaudeModelSpec(
-        id="claude-fable-5",
-        display_name="Claude Fable 5",
-        description="Anthropic's most capable widely released model",
-        context_length=1_000_000,
-        max_output_tokens=128_000,
-        default=True,
-    ),
     ClaudeModelSpec(
         id="claude-opus-4-8",
         display_name="Claude Opus 4.8",
-        description="Most capable Opus-tier model for long-horizon agentic coding",
+        description="Most capable Opus-tier model for complex reasoning and agentic coding",
         context_length=1_000_000,
         max_output_tokens=128_000,
     ),
@@ -55,11 +48,12 @@ CLAUDE_MODELS: tuple[ClaudeModelSpec, ...] = (
         description="Best combination of speed and intelligence",
         context_length=1_000_000,
         max_output_tokens=128_000,
+        default=True,
     ),
     ClaudeModelSpec(
         id="claude-haiku-4-5",
         display_name="Claude Haiku 4.5",
-        description="Fastest current Claude model with near-frontier intelligence",
+        description="Fastest model with near-frontier intelligence",
         context_length=200_000,
         max_output_tokens=64_000,
         aliases=("claude-haiku-4-5-20251001",),
